@@ -59,8 +59,8 @@ class PredictServiceStub(object):
                 request_serializer=proto_dot_predict__pb2.Empty.SerializeToString,
                 response_deserializer=proto_dot_predict__pb2.Empty.FromString,
                 _registered_method=True)
-        self.getData = channel.unary_unary(
-                '/predict.PredictService/getData',
+        self.get_data = channel.unary_unary(
+                '/predict.PredictService/get_data',
                 request_serializer=proto_dot_predict__pb2.TimeStampReq.SerializeToString,
                 response_deserializer=proto_dot_predict__pb2.Predict.FromString,
                 _registered_method=True)
@@ -93,7 +93,7 @@ class PredictServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def getData(self, request, context):
+    def get_data(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -122,8 +122,8 @@ def add_PredictServiceServicer_to_server(servicer, server):
                     request_deserializer=proto_dot_predict__pb2.Empty.FromString,
                     response_serializer=proto_dot_predict__pb2.Empty.SerializeToString,
             ),
-            'getData': grpc.unary_unary_rpc_method_handler(
-                    servicer.getData,
+            'get_data': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_data,
                     request_deserializer=proto_dot_predict__pb2.TimeStampReq.FromString,
                     response_serializer=proto_dot_predict__pb2.Predict.SerializeToString,
             ),
@@ -247,7 +247,7 @@ class PredictService(object):
             _registered_method=True)
 
     @staticmethod
-    def getData(request,
+    def get_data(request,
             target,
             options=(),
             channel_credentials=None,
@@ -260,7 +260,7 @@ class PredictService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/predict.PredictService/getData',
+            '/predict.PredictService/get_data',
             proto_dot_predict__pb2.TimeStampReq.SerializeToString,
             proto_dot_predict__pb2.Predict.FromString,
             options,

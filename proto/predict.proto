@@ -7,7 +7,7 @@ service PredictService {
     rpc deleteall (TimeStampReq) returns (Empty) {}
     rpc update (TimeStampReq) returns (Empty) {}
     rpc plot (Empty) returns (Empty) {}
-    rpc getData (TimeStampReq) returns (Predict){}
+    rpc get_data (TimeStampReq) returns (Predict){}
 }
 
 message Empty {}
